@@ -3,7 +3,7 @@ package codinginterview;
 public class Dice {
 
 	public static void main(String[] args) {
-		
+		//
 		System.out.println(countWays(1));
 		System.out.println(countWays(2));
 		System.out.println(countWays(3));
