@@ -1,8 +1,10 @@
 package codinginterview;
 
 import java.util.HashSet;
+import java.util.Stack;
 
 public class MyList {
+	
     private Node head;
     // k가 0부터 시작인지 1부터 시작한지 check
     
@@ -27,6 +29,37 @@ public class MyList {
         }
         return n1;
     }
+    
+    // 회문 ex) noon, level
+    public boolean isPalindrome(){
+    	Node n1 = head;
+    	Node n2 = head;
+    	
+    	Stack<Integer> s = new Stack<Integer>();
+    	
+    	// 일단 stack에 넣음
+    	while(n2 != null && n2.next != null){
+    		s.push(n1.data);
+    		n1 = n1.next;  // n1이 한칸 갈때
+    		n2 = n2.next.next; // n2는 두칸 감.
+    	}
+    	
+    	// To skip the middle in the case of "Odd"
+    	if(n2 != null){
+    		n1 = n1.next;
+    	}
+    	
+    	// stack에 넣은 것을 비교
+    	while(n1 != null){
+    		if(s.pop() != n1.data){
+    			return false;
+    		} else {
+    			n1 = n1.next; // 다음 것으로 넘어감.
+    		}
+    	}
+    	return true;
+    }
+    
     public void reverse() {
         Node oldHead = head;
         head = null;
