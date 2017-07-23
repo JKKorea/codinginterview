@@ -4,8 +4,13 @@ import java.util.Stack;
 
 public class PalindromeChecker {
 	
+	public static void main(String[] args) {
+		System.out.println(isPalindrome("noon"));
+		System.out.println(isPalindrome("level"));
+		System.out.println(isPalindrome("love"));
+	}
 	// noon, level 반으로 잘라서
-	public boolean isPalindrome(String s) {
+	public static boolean isPalindrome(String s) {
         Stack<Character> stack = new Stack<Character>();
         int len = s.length();
         
